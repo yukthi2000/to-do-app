@@ -5,9 +5,13 @@ POST http://localhost:3005/todo/new
 Content-Type: application/json
 
 {
-    "text":"fadfadasd"
+    "text":"hookup with a girl"
 }
 
 ###
 
-PUT http://localhost:3005/todo/complete/647ecd10ae5ab536825136ab
+PUT http://localhost:3005/todo/complete/647f0952f13328c5967a682c
+
+
+###
+DELETE http://localhost:3005/todo/delete/647ecd45efa26a4bbcfb3c37
