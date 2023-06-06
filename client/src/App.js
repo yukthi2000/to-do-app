@@ -42,19 +42,18 @@ function App() {
     setTodos((todos) => todos.filter((todo) => todo._id !== data._id));
   };
 
-
-  const addTodo =async ()=>{
-		const data = await fetch (API_BASE + "/todo/new",{
-			method:"POST",
-			headers:{"content-Type":"application/json"},
-			body:JSON.stringify({
-				text:newtodo
-			})
-		}).then(res=>res.json());
-		setTodos([...todos,data]);
-		setPopipactive(false);
-		setNewtodo("");
-  }
+  const addTodo = async () => {
+    const data = await fetch(API_BASE + "/todo/new", {
+      method: "POST",
+      headers: { "content-Type": "application/json" },
+      body: JSON.stringify({
+        text: newtodo,
+      }),
+    }).then((res) => res.json());
+    setTodos([...todos, data]);
+    setPopipactive(false);
+    setNewtodo("");
+  };
 
   return (
     <div className="App">
@@ -79,22 +78,45 @@ function App() {
         ))}
       </div>
 
-	  <div className="addpopup" onClick={()=>{
-		setPopipactive(true)
-	  }}> + </div>
+      <div
+        className="addpopup"
+        onClick={() => {
+          setPopipactive(true);
+        }}
+      >
+        {" "}
+        +{" "}
+      </div>
 
-	  {popactive ? (<div className="popup">
-		<div className="closepopup" onClick={()=>{
-			setPopipactive(false)
-		}}>x</div>
-		<div className="content">
-			<h3>Add Task</h3>
-			<input type="text" className="add-todo-input"
-			onChange={e=>setNewtodo(e.target.value)} 
-			value={newtodo} />
-			<div className="button" onClick={addTodo} >Create task</div>
-		</div>
-	  </div>) : ""}
+      {popactive ? (
+        <div className="popup">
+          <div
+            className="closepopup"
+            onClick={() => {
+              setPopipactive(false);
+            }}
+          >
+            x
+          </div>
+          <div className="content">
+            <h3>Add Task</h3>
+            <input
+              type="text"
+              className="add-todo-input"
+              onChange={(e) => setNewtodo(e.target.value)}
+              value={newtodo}
+            />
+            <div
+              className={`button ${newtodo ? "" : "disabled"}`}
+              onClick={newtodo ? addTodo : null}
+            >
+              Create task
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
