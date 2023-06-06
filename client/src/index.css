@@ -64,30 +64,53 @@ h4 {
 
 .todo.is-complete .checkbox {
   background-color: var(--primary);
-  background-image: linear-gradient(to bottom,var(--primary),var(--secondary));
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary),
+    var(--secondary)
+  );
 }
 
-
-.todo .text{
+.todo .text {
   font-size: 20px;
 }
 
-.todo.is-complete .text{
+.todo.is-complete .text {
   text-decoration: line-through;
 }
 
-.todo .delete-todo{
+.todo .delete-todo {
   position: absolute;
-  top:50%;
+  top: 50%;
   right: 16px;
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
   color: var(--light);
-  background-color: #AF1E2D;
+  background-color: #af1e2d;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
+.addpopup {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--light);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--primary),
+    var(--secondary)
+  );
+  cursor: pointer;
 }
