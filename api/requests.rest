@@ -1,0 +1,13 @@
+GET http://localhost:3005/todos
+
+###
+POST http://localhost:3005/todo/new
+Content-Type: application/json
+
+{
+    "text":"fadfadasd"
+}
+
+###
+
+PUT http://localhost:3005/todo/complete/647ecd10ae5ab536825136ab
