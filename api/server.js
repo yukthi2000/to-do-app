@@ -42,4 +42,11 @@ app.get("/todo/complete/:id", async (req, res) => {
   res.json(todo);
 });
 
-app.listen(3005, () => console.log("Server started on port 3005"));
+
+if(process.env.API_PORT){
+
+app.listen(process.env.API_PORT, () => console.log("Server started on port 3005"));
+
+}
+
+module.exports=app;
